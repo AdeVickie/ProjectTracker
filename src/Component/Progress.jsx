@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { useState } from "react";
+// rechart barchart importation
 import {
   LineChart,
   Line,
@@ -11,6 +12,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+// parameters
 const data = [
   {
     name: "Jan",
@@ -46,15 +48,19 @@ const data = [
 
 export default function Progress() {
   const [progress, setProgress] = useState(0);
+  // bar progress by 5
   const handleButtonClick = () => {
     if (progress < 100) {
       setProgress(progress + 5);
     }
   };
 
+  //button reset to zero
   const handleButtonReset = () => {
     setProgress(0);
   };
+
+  // color if else statement
   const getColor = () => {
     if (progress < 50) {
       return "#ff0000";
@@ -72,9 +78,12 @@ export default function Progress() {
   return (
     <>
       <div className="flex gap-10 xs:h-[40rem] md:h-[400px] flex-wrap xs:flex-col md:flex-row p-3">
+        {/* left side of the flex box */}
         <div className=" flex-1 bg-gray-200 rounded-2xl p-3">
           <h1 className="font-bold">Product Progress</h1>
+          {/* bar gray first bar */}
           <div className="w-[100%] h-8 bg-gray-400 rounded-full ">
+            {/* bar gray second bar */}
             <div
               className="h-[100%] pl-2 xs:content-center text-[12px] italic transition-all duration-100 ease-in bg-green-400 rounded-full"
               style={{ width: `${progress}%`, backgroundColor: getColor() }}
@@ -82,22 +91,26 @@ export default function Progress() {
               progress....
             </div>
           </div>
+          {/* Progress percentage */}
           <div className="progressLabel mt-3 text-lg font-semibold">
             {progress}%
           </div>
+          {/* Add progress button */}
           <button
             className="px-3  text-white py-2 mr-3 bg-green-500 rounded-2xl"
             onClick={handleButtonClick}
           >
             Add progess
           </button>
-
+          {/* reset button */}
           <button
             className="px-3 py-2 text-white bg-orange-400 rounded-2xl"
             onClick={handleButtonReset}
           >
             Reset
           </button>
+
+          {/* Remove button */}
           <button
             className="ml-3 px-3 py-2 bg-red-400 rounded-2xl text-white"
             onClick={() => handleDelete(progress)}
@@ -105,6 +118,7 @@ export default function Progress() {
             Remove
           </button>
         </div>
+        {/* Right side of the flex box */}
         <h1 className="font-bold text-center  md:hidden">Project Statistics</h1>
         <div className="flex-1 bg-pink-400 rounded-2xl ">
           <ResponsiveContainer width="100%" height="100%">

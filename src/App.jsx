@@ -15,7 +15,9 @@ import Sidebar from "./Component/Sidebar";
 import Home from "./Component/Home";
 import LandingPage from "./Component/LandingPage";
 import { elements } from "chart.js";
-import Project from "./Component/Project";
+
+import ProjectCom from "./Component/ProjectCom";
+import Model from "./Component/Model";
 
 const Dashboard = () => {
   const [sidebarToggle, setSidebarToggle] = useState(true);
@@ -46,12 +48,12 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/dashbaord",
+    path: "/dashboard",
     element: <Dashboard />,
   },
   {
     path: "/project",
-    element: <Project />,
+    element: <ProjectCom />,
   },
 ]);
 

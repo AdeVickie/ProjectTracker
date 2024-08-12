@@ -9,6 +9,7 @@ export default function Forms() {
         <h1 className="flex justify-center gap-4 text-2xl">Register</h1>
 
         <div className="">
+          {/* Name field */}
           <label form="name" className="block text-base mb-2">
             Name *
           </label>
@@ -18,6 +19,7 @@ export default function Forms() {
             className="w-full text-base h-8 ring-0 border rounded-lg focus:outline-none pl-3 focus:border-gray-400 mb-5"
             placeholder="Enter name....."
           />
+          {/* Personal email field */}
           <label form="email" className="block text-base">
             Personal Email *
           </label>
@@ -27,6 +29,7 @@ export default function Forms() {
             className="w-full text-base h-8 ring-0 border rounded-lg focus:outline-none pl-3 focus:border-gray-400 mb-5"
             placeholder="Enter Personal email....."
           />
+          {/* company's name field */}
           <label form="company's name" className="block text-base mb-2">
             Company's Name
           </label>
@@ -37,6 +40,7 @@ export default function Forms() {
             placeholder="Enter Company's name....."
           />
 
+          {/* create password field */}
           <label form="username" className="block text-base mb-2">
             Create Password *
           </label>
@@ -46,7 +50,7 @@ export default function Forms() {
             className="w-full text-base h-8 ring-0 border rounded-lg focus:outline-none pl-3 focus:border-gray-400 mb-5"
             placeholder="Create password....."
           />
-
+          {/* confirm password field */}
           <label form="username" className="block text-base mb-2">
             Confirm Password *
           </label>
@@ -57,6 +61,7 @@ export default function Forms() {
             placeholder="Confirm password....."
           />
         </div>
+        {/* forget password section */}
         <div className="flex mt-3 justify-between items-center">
           <div>
             <input type="checkbox" />
@@ -66,6 +71,7 @@ export default function Forms() {
             Forgot password?
           </a>
         </div>
+        {/* have an account section */}
         <div className="flex gap-2 mt-5">
           <h1>Have an Account ? </h1>
 
@@ -73,6 +79,7 @@ export default function Forms() {
             Login here &rarr;
           </Link>
         </div>
+        {/* Register button */}
         <p className="text-center pt-3">
           <button className="px-10 py-3 bg-green-700 rounded-2xl text-white shadow-2xl">
             Register

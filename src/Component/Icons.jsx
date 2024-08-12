@@ -364,3 +364,133 @@ export function IconDownOpenMini(props) {
     </svg>
   );
 }
+
+export function IconShareSocialOutline(props) {
+  return (
+    <svg
+      viewBox="0 0 512 512"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={32}
+        d="M176 256 A48 48 0 0 1 128 304 A48 48 0 0 1 80 256 A48 48 0 0 1 176 256 z"
+      />
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={32}
+        d="M432 112 A48 48 0 0 1 384 160 A48 48 0 0 1 336 112 A48 48 0 0 1 432 112 z"
+      />
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={32}
+        d="M432 400 A48 48 0 0 1 384 448 A48 48 0 0 1 336 400 A48 48 0 0 1 432 400 z"
+      />
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={32}
+        d="M169.83 279.53l172.34 96.94M342.17 135.53l-172.34 96.94"
+      />
+    </svg>
+  );
+}
+
+export function IconDeleteBinLine(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path fill="none" d="M0 0h24v24H0z" />
+      <path d="M17 6h5v2h-2v13a1 1 0 01-1 1H5a1 1 0 01-1-1V8H2V6h5V3a1 1 0 011-1h8a1 1 0 011 1v3zm1 2H6v12h12V8zm-9 3h2v6H9v-6zm4 0h2v6h-2v-6zM9 4v2h6V4H9z" />
+    </svg>
+  );
+}
+
+export function IconIconEdit(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M6.3 12.3l10-10a1 1 0 011.4 0l4 4a1 1 0 010 1.4l-10 10a1 1 0 01-.7.3H7a1 1 0 01-1-1v-4a1 1 0 01.3-.7zM8 16h2.59l9-9L17 4.41l-9 9V16zm10-2a1 1 0 012 0v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6c0-1.1.9-2 2-2h6a1 1 0 010 2H4v14h14v-6z" />
+    </svg>
+  );
+}
+
+export function IconAttach(props) {
+  return (
+    <svg
+      viewBox="0 0 939 1000"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M244 990c-68 0-124.667-24-170-72C26 871.333 1.333 816 0 752c-1.333-64 26.667-127.333 84-190L580 66c53.333-53.333 111.333-71.333 174-54 29.333 8 55.667 23.667 79 47s39 49.667 47 79c17.333 64-.667 122.667-54 176L352 788c-26.667 26.667-56 42-88 46-32 2.667-58.667-6.667-80-28-20-16-29-40.667-27-74s17.667-64 47-92l332-334c16-17.333 32.667-17.333 50 0s17.333 34 0 50L254 688c-29.333 29.333-36 52.667-20 70 8 5.333 16 7.333 24 6 16-2.667 31.333-11.333 46-26l474-474c33.333-33.333 44.667-69.333 34-108-10.667-40-36-65.333-76-76-36-9.333-72 2.667-108 36L134 610c-44 50.667-65.333 98.333-64 143 1.333 44.667 18.667 83.667 52 117 33.333 32 72.333 48.667 117 50 44.667 1.333 91.667-19.333 141-62l496-494c16-16 32.667-16 50 0 17.333 14.667 17.333 30.667 0 48L430 908c-54.667 54.667-116.667 82-186 82" />
+    </svg>
+  );
+}
+
+export function IconTimerSandComplete(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M18 22H6v-6l4-4-4-4V2h12v6l-4 4 4 4M8 7.5l4 4 4-4V4H8m4 8.5l-4 4V20h8v-3.5M14 18h-4v-.8l2-2 2 2z" />
+    </svg>
+  );
+}
+
+export function IconTeam(props) {
+  return (
+    <svg
+      viewBox="0 0 1024 1024"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M824.2 699.9a301.55 301.55 0 00-86.4-60.4C783.1 602.8 812 546.8 812 484c0-110.8-92.4-201.7-203.2-200-109.1 1.7-197 90.6-197 200 0 62.8 29 118.8 74.2 155.5a300.95 300.95 0 00-86.4 60.4C345 754.6 314 826.8 312 903.8a8 8 0 008 8.2h56c4.3 0 7.9-3.4 8-7.7 1.9-58 25.4-112.3 66.7-153.5A226.62 226.62 0 01612 684c60.9 0 118.2 23.7 161.3 66.8C814.5 792 838 846.3 840 904.3c.1 4.3 3.7 7.7 8 7.7h56a8 8 0 008-8.2c-2-77-33-149.2-87.8-203.9zM612 612c-34.2 0-66.4-13.3-90.5-37.5a126.86 126.86 0 01-37.5-91.8c.3-32.8 13.4-64.5 36.3-88 24-24.6 56.1-38.3 90.4-38.7 33.9-.3 66.8 12.9 91 36.6 24.8 24.3 38.4 56.8 38.4 91.4 0 34.2-13.3 66.3-37.5 90.5A127.3 127.3 0 01612 612zM361.5 510.4c-.9-8.7-1.4-17.5-1.4-26.4 0-15.9 1.5-31.4 4.3-46.5.7-3.6-1.2-7.3-4.5-8.8-13.6-6.1-26.1-14.5-36.9-25.1a127.54 127.54 0 01-38.7-95.4c.9-32.1 13.8-62.6 36.3-85.6 24.7-25.3 57.9-39.1 93.2-38.7 31.9.3 62.7 12.6 86 34.4 7.9 7.4 14.7 15.6 20.4 24.4 2 3.1 5.9 4.4 9.3 3.2 17.6-6.1 36.2-10.4 55.3-12.4 5.6-.6 8.8-6.6 6.3-11.6-32.5-64.3-98.9-108.7-175.7-109.9-110.9-1.7-203.3 89.2-203.3 199.9 0 62.8 28.9 118.8 74.2 155.5-31.8 14.7-61.1 35-86.5 60.4-54.8 54.7-85.8 126.9-87.8 204a8 8 0 008 8.2h56.1c4.3 0 7.9-3.4 8-7.7 1.9-58 25.4-112.3 66.7-153.5 29.4-29.4 65.4-49.8 104.7-59.7 3.9-1 6.5-4.7 6-8.7z" />
+    </svg>
+  );
+}
+
+export function IconMessageProcessing(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M17 11h-2V9h2m-4 2h-2V9h2m-4 2H7V9h2m11-7H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z" />
+    </svg>
+  );
+}

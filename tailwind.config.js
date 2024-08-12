@@ -12,6 +12,9 @@ export default {
       flex: {
         2: "2 2 0%",
       },
+      textUnderlineOffset: {
+        24: "24px",
+      },
     },
   },
   plugins: [],

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// Icons importation
 import {
   IconBarChartLine,
   IconCalendarTwo,
@@ -13,6 +14,7 @@ import {
 
 export default function Sidebar({ sidebarToggle }) {
   return (
+    // side bar width and toggle effect
     <div
       className={`${
         sidebarToggle ? "hidden" : "block"
@@ -23,13 +25,14 @@ export default function Sidebar({ sidebarToggle }) {
       </div>
 
       <ul className="mt-3 text-white font-semibold">
+        {/* Dashboard */}
         <li className="mb-7 rounded duration-300 hover:shadow bg-blue-500 py-2">
           <a href="" className="px-3">
             <IconHomeOutline className="inline-block w-6 h-6 mr-5 -mt-2" />
             Dashbaord
           </a>
         </li>
-
+        {/* project section and dropdown */}
         <li className="mb-7  rounded duration-300 hover:shadow relative hover:bg-blue-500 py-2 ">
           <Link to="/project" className="px-3 relative">
             <IconFolderOutline className="inline-block w-6 h-6 mr-5 -mt-2" />
@@ -47,7 +50,7 @@ export default function Sidebar({ sidebarToggle }) {
             </div>
           </button>
         </li>
-
+        {/* Team dropdown menu */}
         <li className="mb-7 relative group rounded duration-300 hover:shadow hover:bg-blue-500 py-2">
           <a href="" className="px-3 relative">
             <IconTeamLine className="inline-block w-6 h-6 mr-5 -mt-2" />

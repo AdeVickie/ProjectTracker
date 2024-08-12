@@ -31,10 +31,11 @@ export default function Navbar({ sidebarToggle, setSidebarToggle }) {
               className="w-full px-4 py-1 pl-12 rounded shadow outline-none hidden md:block"
             />
           </div>
-
+          {/* bell icon */}
           <div className="text-white">
             <IconBellRingOutline className="w-6 h-6" />
           </div>
+          {/* Account dropdown */}
           <div className="relative">
             <button className="text-white group ">
               <IconAccountCircleLine className="w-6 h-6 mt-1" />

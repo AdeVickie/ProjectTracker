@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
+
+// Icon importation
 import {
   IconFolderOutline,
   IconLineChartLine,
@@ -11,6 +13,7 @@ import {
 function LandingPage({ writeup1, icon, writeup2, click }) {
   return (
     <>
+      {/* card design and props declaration */}
       <div className="bg-slate-200 shadow-lg rounded-xl w-56 xs:w-72 md:w-52 h-[180px] m-5">
         <div className="flex justify-between p-2">
           <p className="font-semibold text-2xl">{writeup2}</p>
@@ -32,6 +35,7 @@ function LandingPage({ writeup1, icon, writeup2, click }) {
 export default function Card() {
   return (
     <>
+      {/* props calling */}
       <div className="flex flex-1 flex-wrap xs:justify-center md:justify-around">
         <LandingPage
           icon={<IconFolderOutline />}
