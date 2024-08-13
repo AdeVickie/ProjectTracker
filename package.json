@@ -17,6 +17,7 @@
     "@mui/material": "^5.16.7",
     "@syncfusion/ej2-react-spreadsheet": "^26.2.9",
     "chart.js": "^4.4.3",
+    "firebase": "^10.12.5",
     "flatpickr": "^4.6.13",
     "formik": "^2.4.6",
     "primeicons": "^7.0.0",
