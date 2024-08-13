@@ -52,10 +52,10 @@ export default function Sidebar({ sidebarToggle }) {
         </li>
         {/* Team dropdown menu */}
         <li className="mb-7 relative group rounded duration-300 hover:shadow hover:bg-blue-500 py-2">
-          <a href="" className="px-3 relative">
+          <Link to="/team" className="px-3 relative">
             <IconTeamLine className="inline-block w-6 h-6 mr-5 -mt-2" />
             Team
-          </a>
+          </Link>
           <button className="absolute w-[40px] h-[100%] right-0 top-0 ">
             <IconDownOpenMini className="w-8 h-8" />
             <div className="hidden group-hover:block bg-white w-48 h-48 absolute top-full rounded text-gray-600 left-[50px] z-10 text-lg ">
@@ -77,10 +77,10 @@ export default function Sidebar({ sidebarToggle }) {
           </a>
         </li>
         <li className="mb-7 rounded duration-300 hover:shadow hover:bg-blue-500 py-2">
-          <a href="" className="px-3">
+          <Link to="/sheet" className="px-3">
             <IconCalendarTwo className="inline-block w-6 h-6 mr-5 -mt-2" />
             Sheet
-          </a>
+          </Link>
         </li>
         <li className="mb-7 rounded duration-300 hover:shadow hover:bg-blue-500 py-2">
           <a href="" className="px-3">

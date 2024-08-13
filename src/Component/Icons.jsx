@@ -494,3 +494,77 @@ export function IconMessageProcessing(props) {
     </svg>
   );
 }
+
+export function IconWebsite(props) {
+  return (
+    <svg fill="none" viewBox="0 0 24 24" height="1em" width="1em" {...props}>
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M14 7a1 1 0 00-1 1v8a1 1 0 001 1h4a1 1 0 001-1V8a1 1 0 00-1-1h-4zm3 2h-2v6h2V9z"
+        clipRule="evenodd"
+      />
+      <path
+        fill="currentColor"
+        d="M6 7a1 1 0 000 2h4a1 1 0 100-2H6zM6 11a1 1 0 100 2h4a1 1 0 100-2H6zM5 16a1 1 0 011-1h4a1 1 0 110 2H6a1 1 0 01-1-1z"
+      />
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M4 3a3 3 0 00-3 3v12a3 3 0 003 3h16a3 3 0 003-3V6a3 3 0 00-3-3H4zm16 2H4a1 1 0 00-1 1v12a1 1 0 001 1h16a1 1 0 001-1V6a1 1 0 00-1-1z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+export function Icon090Mobile2(props) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path
+        fill="currentColor"
+        d="M12 0H3c-.55 0-1 .45-1 1v14c0 .55.45 1 1 1h9c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1zM7.5 15.278a.778.778 0 110-1.555.778.778 0 010 1.555zM12 13H3V2h9v11z"
+      />
+    </svg>
+  );
+}
+
+export function IconSendCheck(props) {
+  return (
+    <svg
+      fill="currentColor"
+      viewBox="0 0 16 16"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M15.964.686a.5.5 0 00-.65-.65L.767 5.855a.75.75 0 00-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 00.844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 10.928.372l2.8-7zm-2.54 1.183L5.93 9.363 1.591 6.602l11.833-4.733z" />
+      <path d="M16 12.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zm-1.993-1.679a.5.5 0 00-.686.172l-1.17 1.95-.547-.547a.5.5 0 00-.708.708l.774.773a.75.75 0 001.174-.144l1.335-2.226a.5.5 0 00-.172-.686z" />
+    </svg>
+  );
+}
+
+export function IconClipboardCheck(props) {
+  return (
+    <svg
+      fill="currentColor"
+      viewBox="0 0 16 16"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path
+        fillRule="evenodd"
+        d="M10.854 7.146a.5.5 0 010 .708l-3 3a.5.5 0 01-.708 0l-1.5-1.5a.5.5 0 11.708-.708L7.5 9.793l2.646-2.647a.5.5 0 01.708 0z"
+      />
+      <path d="M4 1.5H3a2 2 0 00-2 2V14a2 2 0 002 2h10a2 2 0 002-2V3.5a2 2 0 00-2-2h-1v1h1a1 1 0 011 1V14a1 1 0 01-1 1H3a1 1 0 01-1-1V3.5a1 1 0 011-1h1v-1z" />
+      <path d="M9.5 1a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h3zm-3-1A1.5 1.5 0 005 1.5v1A1.5 1.5 0 006.5 4h3A1.5 1.5 0 0011 2.5v-1A1.5 1.5 0 009.5 0h-3z" />
+    </svg>
+  );
+}

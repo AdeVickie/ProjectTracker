@@ -1,20 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Stack,
+  TextField,
+} from "@mui/material";
 
 export default function Model({ closeModel }) {
   return (
-    <div className="mx-auto h-32 w-32 bg-gray-200">
-      <div className="">
-        <button onClick={() => closeModel(false)}>X</button>
-        <div className="">
-          <h1>Are you sure?</h1>
-        </div>
-        <div className="body">
-          <p>The next page is awesome</p>
-        </div>
-        <div className="">
-          <button onClick={() => closeModel(false)}>Yes</button>
-        </div>
-      </div>
+    
+    <div className="">
+      <Dialog open={open} onClose={() => setOpen(false)} fullWidth>
+        <DialogTitle>Employee Invitation</DialogTitle>
+
+        <DialogContent>
+          <Stack spacing={2} margin={2}></Stack>
+          <TextField
+            varient="outline"
+            label="Email address"
+            fullWidth
+          ></TextField>
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" color="success">
+            SEND
+          </Button>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => closeModel(false)}
+          >
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }

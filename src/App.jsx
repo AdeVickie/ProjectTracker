@@ -15,9 +15,14 @@ import Sidebar from "./Component/Sidebar";
 import Home from "./Component/Home";
 import LandingPage from "./Component/LandingPage";
 import { elements } from "chart.js";
-
+import TeamCom from "./Component/TeamCom";
 import ProjectCom from "./Component/ProjectCom";
-import Model from "./Component/Model";
+import {
+  Sheet,
+  Spreadsheet,
+  SpreadsheetComponent,
+} from "@syncfusion/ej2-react-spreadsheet";
+import Sheets from "./Component/Sheets";
 
 const Dashboard = () => {
   const [sidebarToggle, setSidebarToggle] = useState(true);
@@ -52,8 +57,16 @@ const router = createBrowserRouter([
     element: <Dashboard />,
   },
   {
+    path: "/team",
+    element: <TeamCom />,
+  },
+  {
     path: "/project",
     element: <ProjectCom />,
+  },
+  {
+    path: "/sheet",
+    element: <Sheets />,
   },
 ]);
 
