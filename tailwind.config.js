@@ -7,6 +7,7 @@ export default {
       xs: "320px",
       md: "650px",
       lg: "1024px",
+      xl: "1280PX",
     },
     extend: {
       flex: {

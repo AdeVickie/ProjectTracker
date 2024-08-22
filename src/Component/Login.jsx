@@ -1,4 +1,3 @@
-import React from "react";
 import loginImage from "../assets/Images/loginImage.gif";
 import { IconAccount } from "./Icons";
 import { Link } from "react-router-dom";

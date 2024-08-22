@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.App {
+  @apply max-w-[100vw] min-h-screen;
+}
+
+/* LOGIN PAGE */
+/* LOGIN PAGE */
+.loginPage {
+  @apply flex flex-col xl:flex-row items-center justify-center xl:justify-between gap-10 xl:gap-0 min-h-screen  text-black bg-white;
+}
+
+.loginImageContainer {
+  @apply w-full xl:w-2/3;
+}
+
+.loginForm {
+  @apply w-full md:w-2/3 xl:w-1/3 xl:min-h-screen flex flex-col items-start xl:justify-center gap-5 p-3;
+}
+
+.loginFormHeading {
+  @apply text-xl md:text-3xl font-bold xl:pl-5;
+}
+
+.loginFieldGrp {
+  @apply flex flex-col gap-1 w-full xl:pl-5;
+}
+
+.loginInput {
+  @apply bg-gray-800 text-white rounded-md p-2 w-full xl:w-3/4 outline-0 placeholder:text-gray-300;
+}
+
+.passwordBox {
+  @apply w-full xl:w-3/4 flex flex-row items-center justify-between gap-5 bg-gray-800 rounded-md px-2;
+}
+
+.errorMessage {
+  @apply xl:pl-5 text-red-500 capitalize text-sm;
+}
+
+.loginBtn {
+  @apply px-4 py-2 rounded-md bg-gray-800 text-white mt-3 capitalize hover:scale-110 transition ease-in-out duration-150 xl:ml-5;
+}

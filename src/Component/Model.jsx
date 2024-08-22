@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Button,
   Dialog,
@@ -12,7 +12,6 @@ import {
 
 export default function Model({ closeModel }) {
   return (
-    
     <div className="">
       <Dialog open={open} onClose={() => setOpen(false)} fullWidth>
         <DialogTitle>Employee Invitation</DialogTitle>

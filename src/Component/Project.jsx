@@ -1,4 +1,3 @@
-import React from "react";
 import { IconBxsPlusCircle } from "./Icons";
 
 import { useState } from "react";

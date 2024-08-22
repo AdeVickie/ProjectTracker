@@ -1,4 +1,3 @@
-import React from "react";
 import { IconBxsPlusCircle } from "./Icons";
 
 export default function Team() {

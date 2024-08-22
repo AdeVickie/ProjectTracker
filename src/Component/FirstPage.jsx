@@ -1,4 +1,3 @@
-import React from "react";
 // import Logo from "../assets/Images/Vihubs.png";
 // import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { IconAngleLeft } from "./Icons";
@@ -9,7 +8,7 @@ import { Link } from "react-router-dom";
 function FirstPage() {
   return (
     // logo
-    <div className="bg-gray-800 w-screen h-screen flex justify-center items-center shrink-0 fixed">
+    <div className="bg-gray-800 w-full h-screen flex justify-center items-center">
       <div>
         <img
           src={Logo}
@@ -20,13 +19,13 @@ function FirstPage() {
         />
 
         {/* next page button */}
-        <p className="text-center pt-8">
+        {/* <p className="text-center pt-8">
           <Link to="/register">
             <button className="px-4 py-4 rounded-full bg-slate-100 text-black text-2xl">
               <IconAngleLeft />
             </button>
           </Link>
-        </p>
+        </p> */}
       </div>
     </div>
   );
