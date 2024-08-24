@@ -33,7 +33,7 @@ const App = () => {
   const [loginPassword, setLoginPassword] = useState();
 
   const [loginLoading, setIsLoginLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const [dbData, setDbData] = useState([]);
 

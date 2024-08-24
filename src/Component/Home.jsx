@@ -1,8 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
 import LandingPage from "./LandingPage";
-import Progress from "./Progress";
-import AddTask from "./AddTask";
 
 export default function Home({ sidebarToggle, setSidebarToggle }) {
   return (
@@ -14,8 +12,6 @@ export default function Home({ sidebarToggle, setSidebarToggle }) {
           setSidebarToggle={setSidebarToggle}
         />
         <LandingPage />
-        <Progress />
-        <AddTask />
       </div>
     </>
   );
