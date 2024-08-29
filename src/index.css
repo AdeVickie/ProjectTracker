@@ -50,11 +50,11 @@
 
 /* CARD GROUP */
 .cardGrp {
-  @apply grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 py-5;
+  @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 xl:gap-0 py-5;
 }
 
 .cardBody {
-  @apply flex flex-col justify-between items-start p-2 bg-slate-200 shadow-lg rounded-xl w-56  h-48 mx-auto;
+  @apply flex flex-col justify-between items-start p-2 bg-slate-200 shadow-lg rounded-xl w-full md:w-56  h-48 mx-auto;
 }
 
 .cardHeadingGrp {
@@ -83,7 +83,7 @@
 }
 
 .progressScreenGrp > section {
-  @apply w-full md:w-1/2 min-h-[410px];
+  @apply w-full md:w-1/2 mx-auto min-h-[410px];
 }
 
 .chartContainer {
@@ -96,7 +96,7 @@
 }
 
 .addTaskContainer {
-  @apply w-full lg:w-1/2 p-2 rounded-2xl hover:shadow-lg hover:border hover:border-x-gray-500 hover:border-y-gray-500;
+  @apply w-full lg:w-1/2 mx-auto p-2 rounded-2xl hover:shadow-lg hover:border hover:border-x-gray-500 hover:border-y-gray-500;
 }
 
 .addTaskHeading {
