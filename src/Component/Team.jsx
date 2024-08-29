@@ -1,6 +1,6 @@
 import { IconBxsPlusCircle } from "./Icons";
 
-export default function Team() {
+function Team() {
   return (
     <div className="underline-offset-24">
       <div className="flex justify-between mt-5 mx-4">
@@ -28,3 +28,5 @@ export default function Team() {
     </div>
   );
 }
+
+export default Team;

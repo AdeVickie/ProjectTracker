@@ -118,3 +118,20 @@
 .addTaskBtnIcon {
   @apply inline-block -mt-1 text-lg text-gray-500 group-hover:text-slate-200 mt-0.5;
 }
+
+/* SIDEBAR */
+.sidebar {
+  @apply w-64 bg-gray-800 fixed h-full px-4 py-2 duration-500;
+}
+
+.sidebarItemGrp {
+  @apply mt-3 text-white font-semibold flex flex-col;
+}
+
+.sidebarItem {
+  @apply mb-7  rounded duration-300 hover:shadow relative hover:bg-blue-500 p-2;
+}
+
+.sideMenuIcon {
+  @apply inline-block w-6 h-6 mr-5 -mt-2;
+}
