@@ -15,8 +15,6 @@ const App = () => {
   const [loginLoading, setIsLoginLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  const [dbData, setDbData] = useState([]);
-
   return (
     <div className="App">
       {/* login page is shown when isLoggedIn === false while dashboard is not but when isLoggedIn === true dashboard is shown and login page is not*/}
