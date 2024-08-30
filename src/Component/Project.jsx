@@ -2,9 +2,7 @@ import { IconBxsPlusCircle } from "./Icons";
 import { useState } from "react";
 import Modal from "./Modal";
 
-function Project({ getDatabaseData, dbData }) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function Project({ getDatabaseData, dbData, isOpen, setIsOpen }) {
   return (
     <div>
       <div className="underline-offset-24">

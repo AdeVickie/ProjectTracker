@@ -1,5 +1,6 @@
-import Sidebar from "./Sidebar";
+import { useState } from "react";
 
+import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import LandingPage from "./LandingPage";
 import Team from "./Team";
@@ -10,10 +11,15 @@ const Dashboard = ({
   sidebarToggle,
   setSidebarToggle,
   getDatabaseData,
+  getTeamData,
   dbData,
+  teamData,
   logOut,
   admin,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenTeam, setIsOpenTeam] = useState(false);
+
   return (
     <div className="dashboardScreen">
       <Sidebar sidebarToggle={sidebarToggle} />
@@ -29,15 +35,25 @@ const Dashboard = ({
 
         <Switch>
           <Route exact path={"/"}>
-            <LandingPage />
+            <LandingPage dbData={dbData} />
           </Route>
 
           <Route path={"/Project"}>
-            <Project getDatabaseData={getDatabaseData} dbData={dbData} />
+            <Project
+              getDatabaseData={getDatabaseData}
+              dbData={dbData}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+            />
           </Route>
 
           <Route path={"/Team"}>
-            <Team />
+            <Team
+              getTeamData={getTeamData}
+              teamData={teamData}
+              isOpenTeam={isOpenTeam}
+              setIsOpenTeam={setIsOpenTeam}
+            />
           </Route>
         </Switch>
       </div>

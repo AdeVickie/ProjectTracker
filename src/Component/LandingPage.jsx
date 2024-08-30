@@ -12,20 +12,8 @@ import {
   IconCheck2,
 } from "./Icons";
 
-function LandingPage() {
+function LandingPage({ dbData }) {
   const cardData = [
-    {
-      icon: <IconFolderOutline />,
-      cardData: 20,
-      title: "Total projects",
-      btnText: "Add new project",
-    },
-    {
-      icon: <IconTeamLine />,
-      cardData: 126,
-      title: "Team size",
-      btnText: "Add new members",
-    },
     {
       icon: <IconLineChartLine />,
       cardData: 16000,
@@ -49,6 +37,32 @@ function LandingPage() {
   return (
     <div className="landingPage">
       <div className="cardGrp">
+        <div className="cardBody">
+          <div className="cardHeadingGrp">
+            <p className="cardTitle">Total projects</p>
+            <div className="cardIcon">
+              <IconFolderOutline />
+            </div>
+          </div>
+
+          <h1 className="cardWriteup">{dbData.length}</h1>
+
+          <button className="cardBtn">Add new project</button>
+        </div>
+
+        <div className="cardBody">
+          <div className="cardHeadingGrp">
+            <p className="cardTitle">Team size</p>
+            <div className="cardIcon">
+              <IconFolderOutline />
+            </div>
+          </div>
+
+          <h1 className="cardWriteup">{dbData.length}</h1>
+
+          <button className="cardBtn">Add new member</button>
+        </div>
+
         {cardData.map((element, index) => (
           <div className="cardBody" key={index}>
             <div className="cardHeadingGrp">

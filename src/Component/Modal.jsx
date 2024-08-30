@@ -14,7 +14,7 @@ export default function Modal({ setIsOpen, getDatabaseData }) {
 
     try {
       if (user) {
-        await addDoc(collection(db, `users/${user.email}/ProjectData`), {
+        await addDoc(collection(db, `users/${user.email}/projectData`), {
           projectName: projectName,
           projectTeam: projectTeam,
           projectCategory: projectCategory,
@@ -34,7 +34,6 @@ export default function Modal({ setIsOpen, getDatabaseData }) {
       setProjectTeam("");
 
       setIsOpen(false);
-      alert("project added");
     }
   };
 

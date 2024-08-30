@@ -14,7 +14,7 @@ import Dashboard from "./Component/Dashboard";
 import Sheets from "./Component/Sheets";
 
 import { db, auth } from "./firebase-config/firebase";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, Timestamp } from "firebase/firestore";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -36,6 +36,7 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [dbData, setDbData] = useState([]);
+  const [teamData, setTeamData] = useState([]);
 
   const createAccount = async () => {
     try {
@@ -97,9 +98,25 @@ const App = () => {
 
         setDbData(filteredData);
       }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-      if (!user) {
-        alert("user not valid");
+  const getTeamData = async () => {
+    const user = auth.currentUser;
+
+    try {
+      if (user) {
+        const q = collection(db, `users/${user.email}/teamData`);
+
+        const data = (await getDocs(q)).docs;
+        const filteredData = data.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+
+        setTeamData(filteredData);
       }
     } catch (err) {
       console.error(err);
@@ -120,6 +137,11 @@ const App = () => {
     console.log(dbData);
   }, [isLoggedIn]);
 
+  useEffect(() => {
+    getDatabaseData();
+    getTeamData();
+  }, [dbData, teamData]);
+
   return (
     <div className="App">
       {/* login page is shown when isLoggedIn === false while dashboard is not but when isLoggedIn === true dashboard is shown and login page is not*/}
@@ -129,7 +151,9 @@ const App = () => {
           sidebarToggle={sidebarToggle}
           setSidebarToggle={setSidebarToggle}
           getDatabaseData={getDatabaseData}
+          getTeamData={getTeamData}
           dbData={dbData}
+          teamData={teamData}
           logOut={logOut}
           admin={admin}
         ></Dashboard>
