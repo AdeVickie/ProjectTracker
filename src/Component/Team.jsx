@@ -1,6 +1,37 @@
 import { IconBxsPlusCircle } from "./Icons";
+import { useState } from "react";
 
 function Team() {
+  const createTeam = async () => {
+    setIsLoading(true);
+    const user = auth.currentUser;
+
+    try {
+      if (user) {
+        await addDoc(collection(db, `users/${user.email}/teamData`), {
+          projectName: projectName,
+          projectTeam: projectTeam,
+          projectCategory: projectCategory,
+
+          userID: user.uid,
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      getDatabaseData();
+
+      setIsLoading(false);
+
+      setProjectName("");
+      setProjectCategory("");
+      setProjectTeam("");
+
+      setIsOpen(false);
+      alert("project added");
+    }
+  };
+
   return (
     <div className="underline-offset-24">
       <div className="flex justify-between mt-5 mx-4">

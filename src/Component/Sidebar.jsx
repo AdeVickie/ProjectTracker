@@ -17,7 +17,7 @@ export default function Sidebar({ sidebarToggle }) {
     // side bar width and toggle effect
     <div className={`${sidebarToggle ? "hidden" : "block"} sidebar`}>
       <div className="my-2 mb-10 duration-500">
-        <h1 className="text-2xl text-white font-bold">Project Dashbaord</h1>
+        <h1 className="text-2xl text-white font-bold">Project Dashboard</h1>
       </div>
 
       <ul className="sidebarItemGrp">
@@ -26,12 +26,7 @@ export default function Sidebar({ sidebarToggle }) {
           to={"/"}
           className="mb-7 rounded duration-300 hover:shadow bg-blue-500 py-2"
         >
-          <li>
-            <a href="" className="px-3">
-              <IconHomeOutline className="sideMenuIcon" />
-              Dashbaord
-            </a>
-          </li>
+          Dashbaord
         </Link>
 
         {/* project section and dropdown */}

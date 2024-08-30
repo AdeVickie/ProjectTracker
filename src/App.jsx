@@ -33,7 +33,7 @@ const App = () => {
   const [loginPassword, setLoginPassword] = useState();
 
   const [loginLoading, setIsLoginLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [dbData, setDbData] = useState([]);
 
@@ -87,7 +87,7 @@ const App = () => {
 
     try {
       if (user) {
-        const q = collection(db, `users/${user.email}/employeeData`);
+        const q = collection(db, `users/${user.email}/projectData`);
 
         const data = (await getDocs(q)).docs;
         const filteredData = data.map((doc) => ({
@@ -96,6 +96,10 @@ const App = () => {
         }));
 
         setDbData(filteredData);
+      }
+
+      if (!user) {
+        alert("user not valid");
       }
     } catch (err) {
       console.error(err);
@@ -124,6 +128,10 @@ const App = () => {
         <Dashboard
           sidebarToggle={sidebarToggle}
           setSidebarToggle={setSidebarToggle}
+          getDatabaseData={getDatabaseData}
+          dbData={dbData}
+          logOut={logOut}
+          admin={admin}
         ></Dashboard>
       ) : (
         <LoginPage

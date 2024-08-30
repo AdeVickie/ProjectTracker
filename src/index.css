@@ -135,3 +135,28 @@
 .sideMenuIcon {
   @apply inline-block w-6 h-6 mr-5 -mt-2;
 }
+
+/* PROJECT PAGE */
+.modalBody {
+  @apply bg-white p-3 rounded-lg m-10 transition ease-out duration-500 transform;
+}
+
+.modalBody > form {
+  @apply flex flex-col gap-5;
+}
+
+.modalBody label {
+  @apply font-semibold;
+}
+
+.modalInput {
+  @apply w-full h-8 md:outline-none md:border md:focus:outline-none md:focus:ring-0 md:focus:border-gray-600 text-base px-2 py-1 mt-2 rounded-md;
+}
+
+.listOfProjects {
+  @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10 p-5;
+}
+
+.projectBody {
+  @apply flex flex-col gap-3 p-3 rounded-md bg-slate-300;
+}
