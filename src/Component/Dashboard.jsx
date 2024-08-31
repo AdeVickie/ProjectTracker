@@ -22,7 +22,10 @@ const Dashboard = ({
 
   return (
     <div className="dashboardScreen">
-      <Sidebar sidebarToggle={sidebarToggle} />
+      <Sidebar
+        sidebarToggle={sidebarToggle}
+        setSidebarToggle={setSidebarToggle}
+      />
 
       {/* Sidebar toggle effect */}
       <div className={`${sidebarToggle ? " " : "ml-64"} w-full duration-500`}>

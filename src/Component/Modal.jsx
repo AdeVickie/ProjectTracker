@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { db, auth } from "../firebase-config/firebase";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 export default function Modal({ setIsOpen, getDatabaseData }) {
   const [projectName, setProjectName] = useState("");
   const [projectTeam, setProjectTeam] = useState("");
   const [projectCategory, setProjectCategory] = useState("");
+  const [projectDuration, setProjectDuration] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   const addProject = async () => {
@@ -18,6 +19,8 @@ export default function Modal({ setIsOpen, getDatabaseData }) {
           projectName: projectName,
           projectTeam: projectTeam,
           projectCategory: projectCategory,
+          projectDuration: projectDuration,
+          createdAt: serverTimestamp(),
 
           userID: user.uid,
         });
@@ -64,6 +67,20 @@ export default function Modal({ setIsOpen, getDatabaseData }) {
                 }}
                 className="modalInput"
                 placeholder="Enter project name"
+              />
+            </div>
+
+            <div>
+              <label>Project Duration (MONTHS):</label>
+
+              <input
+                type="number"
+                value={projectDuration}
+                onChange={(e) => {
+                  setProjectDuration(e.target.value);
+                }}
+                className="modalInput"
+                placeholder="Estimated project duration"
               />
             </div>
 
