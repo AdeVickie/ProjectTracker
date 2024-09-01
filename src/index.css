@@ -50,11 +50,11 @@
 
 /* CARD GROUP */
 .cardGrp {
-  @apply grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 py-5;
+  @apply grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-5 md:gap-0 py-5;
 }
 
 .cardBody {
-  @apply flex flex-col justify-between items-start p-2 bg-slate-200 shadow-lg rounded-xl w-56  h-48 mx-auto;
+  @apply flex flex-col justify-between items-start p-2 bg-slate-200 shadow-lg rounded-xl w-full md:w-56  h-48 mx-auto;
 }
 
 .cardHeadingGrp {
@@ -84,6 +84,22 @@
 
 .progressScreenGrp > section {
   @apply w-full md:w-1/2 min-h-[410px];
+}
+
+.listOfProgress {
+  @apply flex flex-col w-full gap-5;
+}
+
+.progressGrp {
+  @apply flex flex-col gap-2;
+}
+
+.progressBar {
+  @apply bg-slate-500 rounded-xl w-full h-5;
+}
+
+.progressStatus {
+  @apply bg-red-700 h-5 rounded-xl w-1/4;
 }
 
 .chartContainer {

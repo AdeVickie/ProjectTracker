@@ -38,7 +38,7 @@ const Dashboard = ({
 
         <Switch>
           <Route exact path={"/"}>
-            <LandingPage dbData={dbData} />
+            <LandingPage dbData={dbData} getDatabaseData={getDatabaseData} />
           </Route>
 
           <Route path={"/Project"}>

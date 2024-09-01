@@ -11,6 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { db } from "../firebase-config/firebase";
 
 // parameters
 const data = [
@@ -46,7 +47,7 @@ const data = [
   },
 ];
 
-export default function Progress() {
+export default function Progress({ dbData, getDatabaseData }) {
   const [progress, setProgress] = useState(0);
   // bar progress by 5
   const handleButtonClick = () => {
@@ -78,44 +79,45 @@ export default function Progress() {
   return (
     <div className="progressScreenGrp">
       {/* left side of the flex box */}
-      <section className=" bg-gray-200 rounded-2xl p-3">
-        <h1 className="font-bold">Product Progress</h1>
-        {/* bar gray first bar */}
-        <div className="w-[100%] h-8 bg-gray-400 rounded-full ">
-          {/* bar gray second bar */}
-          <div
-            className="h-[100%] pl-2 xs:content-center text-[12px] italic transition-all duration-100 ease-in bg-green-400 rounded-full"
-            style={{ width: `${progress}%`, backgroundColor: getColor() }}
-          >
-            progress....
-          </div>
-        </div>
-        {/* Progress percentage */}
-        <div className="progressLabel mt-3 text-lg font-semibold">
-          {progress}%
-        </div>
-        {/* Add progress button */}
-        <button
-          className="px-3  text-white py-2 mr-3 bg-green-500 rounded-2xl"
-          onClick={handleButtonClick}
-        >
-          Add progess
-        </button>
-        {/* reset button */}
-        <button
-          className="px-3 py-2 text-white bg-orange-400 rounded-2xl"
-          onClick={handleButtonReset}
-        >
-          Reset
-        </button>
+      <section className=" bg-gray-200 rounded-md p-3">
+        <h1 className="font-bold uppercase text-xl mb-3">Project Progress</h1>
 
-        {/* Remove button */}
-        <button
-          className="ml-3 px-3 py-2 bg-red-400 rounded-2xl text-white"
-          onClick={() => handleDelete(progress)}
-        >
-          Remove
-        </button>
+        <div className="listOfProgress">
+          {dbData.map((element, index) => (
+            <div className="progressGrp" key={index}>
+              <h1 className=" capitalize font-semibold">
+                {element.projectName}
+              </h1>
+
+              {element.tasks.length > 1 ? (
+                <p className=" text-sm">{element.tasks.length} tasks</p>
+              ) : (
+                <p className="text-sm">{element.tasks.length} task</p>
+              )}
+
+              <div className="progressBar">
+                <div
+                  className=" bg-red-500 h-5 rounded-md"
+                  style={{
+                    width: `${
+                      (element.tasks.filter((task) => task.status === true)
+                        .length /
+                        element.tasks.length) *
+                      100
+                    }%`,
+                  }}
+                ></div>
+              </div>
+
+              <p>
+                {(element.tasks.filter((task) => task.status === true).length /
+                  element.tasks.length) *
+                  100}
+                %
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Right side of the flex box */}

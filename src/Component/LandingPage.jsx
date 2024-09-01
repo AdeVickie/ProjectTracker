@@ -12,7 +12,7 @@ import {
   IconCheck2,
 } from "./Icons";
 
-function LandingPage({ dbData }) {
+function LandingPage({ dbData, getDatabaseData }) {
   const cardData = [
     {
       icon: <IconLineChartLine />,
@@ -77,7 +77,7 @@ function LandingPage({ dbData }) {
         ))}
       </div>
 
-      <Progress />
+      <Progress dbData={dbData} getDatabaseData={getDatabaseData} />
 
       <div className="addTaskScreenGrp">
         <div className="addTaskContainer">
