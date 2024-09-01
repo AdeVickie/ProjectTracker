@@ -14,7 +14,6 @@ import {
 import { useEffect } from "react";
 
 export default function Sidebar({ sidebarToggle, setSidebarToggle }) {
-  useEffect(() => console.log(sidebarToggle), [sidebarToggle]);
   return (
     // side bar width and toggle effect
     <div className={`${sidebarToggle ? "hidden" : "block"} sidebar`}>

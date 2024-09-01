@@ -127,6 +127,7 @@ const App = () => {
   useEffect(() => {
     if (isLoggedIn) {
       getDatabaseData();
+      getTeamData();
     }
 
     if (auth.currentUser?.email) {
@@ -136,11 +137,6 @@ const App = () => {
 
     console.log(dbData);
   }, [isLoggedIn]);
-
-  useEffect(() => {
-    getDatabaseData();
-    getTeamData();
-  }, [dbData, teamData]);
 
   return (
     <div className="App">

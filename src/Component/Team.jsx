@@ -1,5 +1,13 @@
 import { db, auth } from "../firebase-config/firebase";
-import { addDoc, collection } from "firebase/firestore";
+import {
+  getDoc,
+  addDoc,
+  arrayUnion,
+  updateDoc,
+  deleteDoc,
+  collection,
+  doc,
+} from "firebase/firestore";
 
 import { IconBxsPlusCircle } from "./Icons";
 import { useEffect, useState } from "react";
@@ -8,6 +16,20 @@ function Team({ getTeamData, teamData, isOpenTeam, setIsOpenTeam }) {
   const [teamName, setTeamName] = useState("");
   const [memberName, setMemberName] = useState("");
   const [teamMembers, setTeamMembers] = useState([]);
+
+  const [addMemberClickedID, setAddMemberClickedID] = useState(null);
+  const [addThisMember, setAddThisMember] = useState("");
+  const [membersToDelete, setMembersToDelete] = useState([]);
+
+  const handleCheckboxChange = (teamId, memberName, isChecked) => {
+    if (isChecked) {
+      setMembersToDelete((prev) => [...prev, { teamId, memberName }]);
+    } else {
+      setMembersToDelete((prev) =>
+        prev.filter((member) => member.memberName !== memberName)
+      );
+    }
+  };
 
   const createTeam = async () => {
     const user = auth.currentUser;
@@ -31,6 +53,72 @@ function Team({ getTeamData, teamData, isOpenTeam, setIsOpenTeam }) {
 
       setIsOpenTeam(false);
     }
+  };
+
+  const addMemberToTeam = async (id, member) => {
+    const user = auth.currentUser;
+    try {
+      if (user) {
+        const teamDoc = doc(collection(db, `users/${user.email}/teamData`), id);
+
+        await updateDoc(teamDoc, {
+          teamMembers: arrayUnion(member),
+        });
+
+        setAddMemberClickedID(null);
+      }
+
+      alert("member successfully added");
+    } catch (err) {
+      console.error(err);
+    } finally {
+      getTeamData();
+      setAddThisMember("");
+    }
+  };
+
+  const deleteMemberFromTeam = async (teamId, memberToDelete) => {
+    const user = auth.currentUser;
+
+    try {
+      if (user) {
+        const teamDoc = doc(
+          collection(db, `users/${user.email}/teamData`),
+          teamId
+        );
+
+        // First, get the current team data
+        const teamSnapshot = await getDoc(teamDoc);
+        if (teamSnapshot.exists()) {
+          const teamData = teamSnapshot.data();
+
+          // Filter out the member to be deleted
+          const updatedMembers = teamData.teamMembers.filter(
+            (member) => member !== memberToDelete
+          );
+
+          // Update the document with the new members list
+          await updateDoc(teamDoc, {
+            teamMembers: updatedMembers,
+          });
+
+          alert("Member deleted successfully");
+        } else {
+          alert("Team not found");
+        }
+      }
+    } catch (err) {
+      console.error("Error deleting member:", err);
+    } finally {
+      getTeamData();
+    }
+  };
+
+  const handleDeleteSelected = () => {
+    membersToDelete.forEach((member) => {
+      deleteMemberFromTeam(member.teamId, member.memberName);
+    });
+    setMembersToDelete([]);
   };
 
   useEffect(() => {
@@ -75,26 +163,87 @@ function Team({ getTeamData, teamData, isOpenTeam, setIsOpenTeam }) {
           {teamData && teamData.length > 0 ? (
             teamData.map((element) => (
               <div key={element.id} className="projectBody">
-                <h1 className=" text-xl font-bold uppercase">
-                  {element.teamName}
-                </h1>
+                <div className=" flex flex-row justify-between items-center">
+                  <h1 className=" text-xl font-bold uppercase">
+                    {element.teamName}
+                  </h1>
 
-                {/* <p>{element.memberName}</p> */}
+                  {element.teamMembers.length > 0 ? (
+                    <p>{element.teamMembers.length} member(s)</p>
+                  ) : (
+                    <p>0 members</p>
+                  )}
+                </div>
 
+                {/* team member list */}
                 {element.teamMembers && element.teamMembers.length > 0 ? (
-                  <p className=" capitalize">
-                    {element.teamMembers
-                      .map(
-                        (e, i) => e
-                        // <span key={i} className="projectBody">
-                        //   {e},
-                        // </span>
-                      )
-                      .join(", ")}
-                  </p>
+                  <div className=" grid grid-cols-2 gap-1">
+                    {element.teamMembers.map((e, i) => (
+                      <div key={i}>
+                        <div className=" flex flex-row items-center gap-2">
+                          <input
+                            type="checkbox"
+                            onChange={(event) =>
+                              handleCheckboxChange(
+                                element.id,
+                                e,
+                                event.target.checked
+                              )
+                            }
+                          />
+
+                          <p className=" capitalize text-sm">{e}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 ) : (
                   <p className=" font-semibold">No members found.</p>
                 )}
+
+                {/* add member form */}
+                {addMemberClickedID === element.id && (
+                  <form className=" addTaskForm text-sm flex flex-col gap-2">
+                    <input
+                      type="text"
+                      className=" taskInput"
+                      value={addThisMember}
+                      onChange={(e) => {
+                        setAddThisMember(e.target.value);
+                      }}
+                    />
+
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        addMemberToTeam(element.id, addThisMember);
+                      }}
+                      className=" bg-slate-950 text-white rounded-md p-2 w-fit text-xs capitalize"
+                    >
+                      Add {addThisMember}
+                    </button>
+                  </form>
+                )}
+
+                <div className=" flex flex-row justify-between items-center">
+                  <button
+                    className=" bg-slate-950 p-2 rounded-md text-white text-sm w-fit"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setAddMemberClickedID(element.id);
+                      console.log(element.id);
+                    }}
+                  >
+                    Add new member
+                  </button>
+
+                  <button
+                    onClick={handleDeleteSelected}
+                    className="bg-red-500 p-2 rounded-md text-white text-sm w-fit"
+                  >
+                    Delete Members
+                  </button>
+                </div>
               </div>
             ))
           ) : (
