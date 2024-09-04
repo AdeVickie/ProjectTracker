@@ -16,7 +16,6 @@ function Project({ getDatabaseData, dbData, isOpen, setIsOpen }) {
   const [addTaskClickedID, setAddTaskClickedID] = useState(null);
   const [taskName, setTaskName] = useState("");
   const [taskContent, setTaskContent] = useState("");
-  const [taskStatus, setTaskStatus] = useState(false);
 
   const addTaskToProject = async (id, task) => {
     const user = auth.currentUser;
@@ -45,24 +44,6 @@ function Project({ getDatabaseData, dbData, isOpen, setIsOpen }) {
       setTaskContent("");
     }
   };
-
-  // const updateTaskStatus = async (id, completedStatus) => {
-  //   const user = auth.currentUser;
-
-  //   try {
-  //     if (user) {
-  //       const projectDoc = doc(
-  //         collection(db, `users/${user.email}/projectData`),
-  //         id
-  //       );
-  //       await updateDoc(projectDoc, { status: completedStatus });
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   } finally {
-  //     getDatabaseData();
-  //   }
-  // };
 
   const updateTaskStatus = async (projectId, taskId, completedStatus) => {
     const user = auth.currentUser;
@@ -95,6 +76,7 @@ function Project({ getDatabaseData, dbData, isOpen, setIsOpen }) {
       getDatabaseData();
     }
   };
+
   return (
     <div>
       <div className="underline-offset-24">
@@ -151,6 +133,47 @@ function Project({ getDatabaseData, dbData, isOpen, setIsOpen }) {
 
                 <p>{element.projectCategory}</p>
 
+                {/* Display tasks */}
+                {element.tasks && element.tasks.length > 0 && (
+                  <div className="tasks-list mt-4">
+                    <h2 className="text-md font-semibold">Tasks:</h2>
+                    {element.tasks.map((task, index) => (
+                      <div key={index} className="task-item p-2 border-b">
+                        <h3 className=" font-semibold">{task.name}</h3>
+
+                        <div className=" flex flex-row items-center gap-2">
+                          <input
+                            type="checkbox"
+                            className=" cursor-pointer"
+                            checked={task.status}
+                            onChange={(e) => {
+                              const checkStatus = e.target.checked;
+                              updateTaskStatus(
+                                element.id,
+                                task.id,
+                                checkStatus
+                              );
+                            }}
+                          />
+
+                          <p
+                            onClick={() => console.log(task.id)}
+                            className={`text-sm ${
+                              task.status ? " line-through" : ""
+                            }`}
+                          >
+                            {task.content}
+                          </p>
+                        </div>
+
+                        <p className="text-xs text-gray-500">
+                          {task.status ? "completed" : "pending"}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 {/* add task form */}
                 {addTaskClickedID === element.id && (
                   <form className=" addTaskForm text-sm flex flex-col gap-2">
@@ -192,47 +215,6 @@ function Project({ getDatabaseData, dbData, isOpen, setIsOpen }) {
                       Submit task
                     </button>
                   </form>
-                )}
-
-                {/* Display tasks */}
-                {element.tasks && element.tasks.length > 0 && (
-                  <div className="tasks-list mt-4">
-                    <h2 className="text-md font-semibold">Tasks:</h2>
-                    {element.tasks.map((task, index) => (
-                      <div key={index} className="task-item p-2 border-b">
-                        <h3 className=" font-semibold">{task.name}</h3>
-
-                        <div className=" flex flex-row items-center gap-2">
-                          <input
-                            type="checkbox"
-                            className=" cursor-pointer"
-                            checked={task.status}
-                            onChange={(e) => {
-                              const checkStatus = e.target.checked;
-                              updateTaskStatus(
-                                element.id,
-                                task.id,
-                                checkStatus
-                              );
-                            }}
-                          />
-
-                          <p
-                            onClick={() => console.log(task.id)}
-                            className={`text-sm ${
-                              task.status ? " line-through" : ""
-                            }`}
-                          >
-                            {task.content}
-                          </p>
-                        </div>
-
-                        <p className="text-xs text-gray-500">
-                          {task.status ? "completed" : "pending"}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
                 )}
 
                 <p className=" text-xs">

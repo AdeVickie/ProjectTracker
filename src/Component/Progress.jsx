@@ -1,5 +1,3 @@
-import React, { PureComponent } from "react";
-import { useState } from "react";
 // rechart barchart importation
 import {
   LineChart,
@@ -11,7 +9,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { db } from "../firebase-config/firebase";
 
 // parameters
 const data = [
@@ -47,35 +44,7 @@ const data = [
   },
 ];
 
-export default function Progress({ dbData, getDatabaseData }) {
-  const [progress, setProgress] = useState(0);
-  // bar progress by 5
-  const handleButtonClick = () => {
-    if (progress < 100) {
-      setProgress(progress + 5);
-    }
-  };
-
-  //button reset to zero
-  const handleButtonReset = () => {
-    setProgress(0);
-  };
-
-  // color if else statement
-  const getColor = () => {
-    if (progress < 50) {
-      return "#ff0000";
-    } else if (progress < 70) {
-      return "#ffa500";
-    } else {
-      return "#2ecc71";
-    }
-  };
-
-  const handleDelete = (progess) => {
-    alert("Removed");
-  };
-
+export default function Progress({ dbData }) {
   return (
     <div className="progressScreenGrp">
       {/* left side of the flex box */}
@@ -99,12 +68,12 @@ export default function Progress({ dbData, getDatabaseData }) {
                 <div
                   className=" bg-red-500 h-5 rounded-md"
                   style={{
-                    width: `${
+                    width: `${Math.ceil(
                       (element.tasks.filter((task) => task.status === true)
                         .length /
                         element.tasks.length) *
-                      100
-                    }%`,
+                        100
+                    )}%`,
                   }}
                 ></div>
               </div>
