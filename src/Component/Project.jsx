@@ -55,7 +55,7 @@ function Project({ getDatabaseData, dbData, isOpen, setIsOpen }) {
           projectId
         );
 
-        // First, get the current project document
+        // First get the current project document
         const projectSnapshot = await getDoc(projectDoc);
 
         if (projectSnapshot.exists()) {
